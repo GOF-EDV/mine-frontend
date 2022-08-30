@@ -1,6 +1,7 @@
 {
   "name": "mine-interface",
   "version": "0.1.0",
+  "homepage": "https://gof-edv.github.io/mine-frontend/",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.0.9",
@@ -24,9 +25,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "BUILD_PATH=docs react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d docs"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
