@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/mine-frontend/static/js/main.e2ff002f.js",
+    "static/media/speedness.png": "/mine-frontend/static/media/speedness.26851c288686ebc9620b.png",
+    "static/media/ethereum_payments.png": "/mine-frontend/static/media/ethereum_payments.71c392ee9b3e85ca9c3b.png",
+    "static/media/tracing.png": "/mine-frontend/static/media/tracing.6b3ae4d31dab50499019.png",
+    "static/media/blockchain.png": "/mine-frontend/static/media/blockchain.5b9f8725dcb1f79027eb.png",
+    "index.html": "/mine-frontend/index.html",
+    "main.e2ff002f.js.map": "/mine-frontend/static/js/main.e2ff002f.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e2ff002f.js"
+  ]
+}
