@@ -154,7 +154,7 @@ function Product() {
               mt={8}
               size={'lg'}
               py={'7'}
-              colorScheme={'green'}
+              colorScheme={'blue'}
               textTransform={'uppercase'}
               _hover={{
                 transform: 'translateY(2px)',
