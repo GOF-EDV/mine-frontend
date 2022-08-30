@@ -46,7 +46,7 @@ import Blockchain from '../../../assets/hero-illustration/blockchain.png';
               </Text>
             </Heading>
             <Text color={'gray.500'}>
-                Compra y vende inmuebles mas rapido, <br/>
+                Compra y vende muebles mas rapido, <br/>
                 mas seguro y sin depender de nadie
 
             </Text>
