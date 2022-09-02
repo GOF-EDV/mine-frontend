@@ -11,6 +11,7 @@ import NavLink from '../nav-link';
 import Wallet from '../wallet';
 import Logo from '../../../assets/logo';
 import { useWeb3React } from '@web3-react/core';
+import { Link } from 'react-router-dom';
 
 
 
@@ -35,6 +36,10 @@ export default function NavBar() {
     
   ] : [
     {
+      title: 'Inicio',
+      path: '/'
+    },
+    {
       title: 'Acerca de nosotros',
       path: '/acerca-de-nosotros'
     }
@@ -53,7 +58,7 @@ export default function NavBar() {
             bg={'transparent'}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box><Logo /></Box>
+            <Box><Link to="/"><Logo /></Link></Box>
           </HStack>
 
 

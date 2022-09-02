@@ -11,9 +11,8 @@ import {
     Text,
     Box
 } from '@chakra-ui/react';
-import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core';
 import { Link } from 'react-router-dom';
-import { connector } from '../../../config/web3';
+import useWalletData from '../../../hooks/useWalletData';
 
 const AvatarWallet = ({active}) => {
     const activeColor = active ? 'green' : 'gray'
@@ -28,11 +27,11 @@ const AvatarWallet = ({active}) => {
     </Avatar>)
 }
 
-const ButtonConnection = ({active, connect, unsupportedChain}) => {
+export const ButtonConnection = ({active, connect, unsupportedChain}) => {
     if (unsupportedChain) {
         const title = 'Red no soportada'
         const scheme = 'orange'
-        return <Button w={'100%'} size={'xs'} onClick={connect} colorScheme={scheme} variant='outline'>{title}</Button>
+        return <Button w={'100%'} size={'xs'} onClick={connect} disabled={unsupportedChain} colorScheme={scheme} variant='outline'>{title}</Button>
     }
     const title = active ? 'Desconectar wallet' : 'Conectar wallet'
     const scheme = active ? 'red' : 'green'
@@ -40,17 +39,7 @@ const ButtonConnection = ({active, connect, unsupportedChain}) => {
 }
 
 function Wallet() {
-    const {activate, active, account, error, deactivate } = useWeb3React()
-    const unsupportedChain = error instanceof UnsupportedChainIdError
-    const address = `${account?.substr(0, 6)}...${account?.substr(-4)}`
-
-    const connect = () => {
-        activate(connector)
-    }
-
-    const disconnect = () => {
-        deactivate()
-    }
+    const {address, network, unsupportedChain, connect, disconnect, active, balance} = useWalletData()
 
     return (
         <Flex alignItems={'center'}>
@@ -73,14 +62,14 @@ function Wallet() {
                     </MenuItem>
                     <MenuItem as={Box} _hover={{ background: 'transparent' }} closeOnSelect={false} isFocusable={false}>
                         <Text as={'small'} color={'gray.600'}>
-                            Testnet
+                            {network}
                         </Text>
                     </MenuItem>
-                    {/* <MenuItem as={Box} _hover={{ background: 'transparent' }} closeOnSelect={false} isFocusable={false}>
+                    <MenuItem as={Box} _hover={{ background: 'transparent' }} closeOnSelect={false} isFocusable={false}>
                         <Text as={'small'} color={'gray.600'}>
-                            {web3} ETH
+                             ∼{balance} ETH
                         </Text>
-                    </MenuItem> */}
+                    </MenuItem>
                     <MenuDivider/>
                     <MenuItem as={Link} to={'/profile'}>Mis bienes</MenuItem>
                     </>
